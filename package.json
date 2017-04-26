@@ -4,6 +4,7 @@
   "description": "a karma-coverage plugin for incremental coverage",
   "main": "index.js",
   "scripts": {
+    "eslint": "eslint lib/**/*.js -f table",
     "test": "npm test"
   },
   "keywords": [
@@ -13,6 +14,8 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
     "karma-coverage": "^1.1.1"
   },
   "repository": {
