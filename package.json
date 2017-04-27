@@ -4,7 +4,7 @@
   "description": "a karma-coverage plugin for incremental coverage",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint lib/**/*.js -f table",
+    "eslint": "eslint **/*.js -f table",
     "test": "istanbul cover jasmine index.spec.js"
   },
   "keywords": [
