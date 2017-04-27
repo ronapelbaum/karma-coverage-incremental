@@ -1,4 +1,5 @@
 instrumentation:
     excludes: [
-      "spec/**"
+      "spec/**",
+      "index.spec.js"
     ]
