@@ -6,3 +6,9 @@ reporting:
   reports:
     - lcov
     - json-summary
+check:
+  global:
+    statements: 49.5
+    branches: 13.14
+    functions: 28.57
+    lines: 50.44
