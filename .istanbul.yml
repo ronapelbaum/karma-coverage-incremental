@@ -3,3 +3,7 @@ instrumentation:
       "spec/**",
       "index.spec.js"
     ]
+reporting:
+  reports:
+    - lcov
+    - json-summary
