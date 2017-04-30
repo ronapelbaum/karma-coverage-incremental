@@ -1,7 +1,6 @@
 instrumentation:
     excludes: [
-      "spec/**",
-      "index.spec.js"
+      "**/*.spec.js"
     ]
 reporting:
   reports:
