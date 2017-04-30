@@ -48,6 +48,18 @@ describe('coverage-updater spec', () => {
       }, 0);
       expect(actual.lines).toBe(2);
     });
+    it('should return zeros when no newCheck', () => {
+      const actual = coverageUpdater.calcCheck({
+        lines: undefined,
+      });
+      expect(actual.lines).toBe(0);
+    });
+    it('should return newCheck with sero flexibility', () => {
+      const actual = coverageUpdater.calcCheck({
+        lines: 2,
+      });
+      expect(actual.lines).toBe(2);
+    });
     it('should return newCheck value with flex calc', () => {
       const actual = coverageUpdater.calcCheck({
         lines: 2,
