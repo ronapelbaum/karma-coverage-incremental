@@ -11,14 +11,49 @@ a karma-coverage plugin for incremental coverage
 npm install --save-dev karma-coverage-incremental
 ```
 
-## Node
-(in progress...)
-
 ## Karma (JSON support)
-(in progress...)
+
+#### install `karma-coverage`
+
 ```
 npm i -D karma-coverage
 ```
+
+#### config `karma-coverage`
+
+- Outsource threshold in a separate json file 
+- Use `json-summary` coverage-reporter
+
+```javascript
+coverageReporter: {
+  check: {
+    global: require('./coverage.conf.json') 
+  }
+  reporters: [
+           {type: 'json-summary'}
+        ]
+}
+```
+
+#### add `increment`
+
+Add `increment` to reporters:
+
+```javascript
+    reporters: ['coverage', 'increment']
+```
+
+#### config `increment`
+
+```javascript
+incrementConfig: {
+  flexibility: 0.5, //factor to reduce the roughness of the latest coverage results
+  coverageCheckPath: './coverage.conf.json' //path to coverage threshold json
+}
+```
+
+## Node
+(in progress...)
 
 ## Istanbul (YAML support)
 (in progress...)
