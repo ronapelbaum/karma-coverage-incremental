@@ -60,15 +60,11 @@ incrementConfig: {
 
 # Development
 
-## Install
-
 ```
 npm install
-```
-## Build, Test etc.
 
-```
 npm test
+
 npm run lint
 npm run lint-fix
 ```
