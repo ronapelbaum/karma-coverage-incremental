@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint **/*.js -f table",
-    "lint-fix": "eslint **/*.js --fix",
+    "lint-fix": "eslint **/*.js --fix --quiet",
     "coveralls": "./node_modules/.bin/istanbul-coveralls",
     "test": "istanbul cover jasmine index.spec.js"
   },
