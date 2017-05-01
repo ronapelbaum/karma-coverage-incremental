@@ -16,6 +16,9 @@ npm install --save-dev karma-coverage-incremental
 
 ## Karma (JSON support)
 (in progress...)
+```
+npm i -D karma-coverage
+```
 
 ## Istanbul (YAML support)
 (in progress...)
