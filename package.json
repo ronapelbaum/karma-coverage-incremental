@@ -20,8 +20,7 @@
     "eslint-plugin-import": "^2.2.0",
     "istanbul": "^0.4.5",
     "istanbul-coveralls": "^1.0.3",
-    "jasmine": "^2.6.0",
-    "karma-coverage": "^1.1.1"
+    "jasmine": "^2.6.0"
   },
   "repository": {
     "type": "git",
@@ -29,6 +28,7 @@
   },
   "dependencies": {
     "js-yaml": "^3.8.3",
+    "karma-coverage": "^1.1.1",
     "requireindex": "^1.1.0"
   }
 }
