@@ -1,6 +1,5 @@
 const requireIndex = require('requireindex');
-
 const lib = requireIndex(`${__dirname}/lib/`);
-module.exports = lib;
 
-// lib['coverage-updater'].updateCodeCoverage();
+// module.exports = lib;
+module.exports = lib['karma-plugin'];
