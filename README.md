@@ -5,6 +5,12 @@ karma-coverage-incremental
 
 a karma-coverage plugin for incremental coverage
 
+# Usage
+
+```
+npm install --save-dev karma-coverage-incremental
+```
+
 ## Node
 (in progress...)
 
@@ -13,3 +19,18 @@ a karma-coverage plugin for incremental coverage
 
 ## Istanbul (YAML support)
 (in progress...)
+
+# Development
+
+## Install
+
+```
+npm install
+```
+## Build, Test etc.
+
+```
+npm test
+npm run lint
+npm run lint-fix
+```
