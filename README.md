@@ -1,6 +1,6 @@
 karma-coverage-incremental
 ===
-[![npm version](https://badge.fury.io/js/eslint-plugin-arguments.svg)](https://badge.fury.io/js/eslint-plugin-arguments)
+[![npm version](https://badge.fury.io/js/karma-coverage-incremental.svg)](https://badge.fury.io/js/karma-coverage-incremental)
 [![Build Status](https://travis-ci.org/ronapelbaum/karma-coverage-incremental.svg?branch=master)](https://travis-ci.org/ronapelbaum/karma-coverage-incremental)
 [![Coverage Status](https://coveralls.io/repos/github/ronapelbaum/karma-coverage-incremental/badge.svg?branch=master)](https://coveralls.io/github/ronapelbaum/karma-coverage-incremental?branch=master)
 
