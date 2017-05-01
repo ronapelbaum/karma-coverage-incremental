@@ -1,87 +1,35 @@
 const incrementReporter = require('../lib/karma-plugin')['reporter:increment'][1];
 
 describe('incrementReporter spec', () => {
-  it('should export properly', () => {
-    expect(incrementReporter).toBeDefined();
+  describe('export spec', () => {
+    it('should export properly', () => {
+      expect(incrementReporter).toBeDefined();
+    });
+    it('should export a function', () => {
+      expect(typeof incrementReporter).toBe('function');
+    });
   });
-  it('should export a function', () => {
-    expect(typeof incrementReporter).toBe('function');
+
+  describe('requirements spec', () => {
+    describe('coverage reporter', () => {
+      it('should throw error if no "coverage" reporter defined', () => {
+        expect(() => incrementReporter({})).toThrow(new Error('coverage reporter should be used'));
+      });
+    });
+    describe('json-summary coverage-reporter', () => {
+      const coverageReporter = { type: 'html' };
+      const config = {
+        reporters: ['coverage'],
+      };
+      const errMsg = 'json-summary coverage-reporter should be used';
+      it('should throw error if no "json-summary" coverage-reporter defined', () => {
+        config.coverageReporter = coverageReporter;
+        expect(() => incrementReporter(config)).toThrow(new Error(errMsg));
+      });
+      it('should throw error if no "coverage" reporter defined', () => {
+        config.coverageReporter = [coverageReporter];
+        expect(() => incrementReporter(config)).toThrow(new Error(errMsg));
+      });
+    });
   });
 });
-
-// describe('coverage-updater spec', () => {
-//   describe('getCoverageSummaryTotal spec', () => {
-//     // it('', () => {});
-//     it('should return default with zeros', () => {
-//       const actual = incrementReporter.getCoverageSummaryTotal({});
-//       expect(actual.statements).toBe(0);
-//       expect(actual.branches).toBe(0);
-//       expect(actual.functions).toBe(0);
-//       expect(actual.lines).toBe(0);
-//     });
-//     it('should read "pct" value - whole numbers', () => {
-//       const actual = incrementReporter.getCoverageSummaryTotal({
-//         total: {
-//           lines: {
-//             pct: 2,
-//           },
-//         },
-//       });
-//       expect(actual.lines).toBe(2);
-//     });
-//     it('should read "pct" value - float numbers', () => {
-//       const actual = incrementReporter.getCoverageSummaryTotal({
-//         total: {
-//           lines: {
-//             pct: 2.2,
-//           },
-//         },
-//       });
-//       expect(actual.lines).toBe(2.2);
-//     });
-//     it('should read "pct" value - undefined', () => {
-//       const actual = incrementReporter.getCoverageSummaryTotal({
-//         total: {
-//           lines: {},
-//         },
-//       });
-//       expect(actual.lines).toBe(0);
-//     });
-//   });
-//
-//   describe('calcCheck spec', () => {
-//     // it('', () => {});
-//     it('should return newCheck when value no oldCheck', () => {
-//       const actual = incrementReporter.calcCheck({
-//         lines: 2,
-//       }, 0);
-//       expect(actual.lines).toBe(2);
-//     });
-//     it('should return zeros when no newCheck', () => {
-//       const actual = incrementReporter.calcCheck({
-//         lines: undefined,
-//       });
-//       expect(actual.lines).toBe(0);
-//     });
-//     it('should return newCheck with sero flexibility', () => {
-//       const actual = incrementReporter.calcCheck({
-//         lines: 2,
-//       });
-//       expect(actual.lines).toBe(2);
-//     });
-//     it('should return newCheck value with flex calc', () => {
-//       const actual = incrementReporter.calcCheck({
-//         lines: 2,
-//       }, 0.5);
-//       expect(actual.lines).toBe(1.5);
-//     });
-//     it('should return oldCheck value, when higher', () => {
-//       const actual = incrementReporter.calcCheck({
-//         lines: 2,
-//       }, 0.5, {
-//         lines: 1.7,
-//       });
-//       expect(actual.lines).toBe(1.7);
-//     });
-//   });
-// });
