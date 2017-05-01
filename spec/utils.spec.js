@@ -1,4 +1,4 @@
-const utils = require('../index.js').utils;
+const utils = require('../lib/utils');
 const fs = require('fs');
 
 describe('utils spec', () => {

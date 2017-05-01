@@ -1,4 +1,4 @@
-const coverageUpdater = require('../index.js')['coverage-updater'];
+const coverageUpdater = require('../lib/coverage-updater');
 
 describe('coverage-updater spec', () => {
   describe('getCoverageSummaryTotal spec', () => {
