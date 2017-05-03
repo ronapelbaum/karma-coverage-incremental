@@ -53,6 +53,9 @@ incrementConfig: {
 }
 ```
 
+#### How does it work?
+Takes the latest coverage report (from `json-summary` plugin) and smart-copies it to the `coverage.conf.json` file.
+
 ## Node
 (in progress...)
 
