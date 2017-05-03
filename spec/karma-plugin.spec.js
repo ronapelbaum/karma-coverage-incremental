@@ -6,6 +6,8 @@ describe('incrementReporter spec', () => {
   const htmlCoverageReporter = { type: 'html' };
   const jsonSummaryCoverageReporter = { type: 'json-summary' };
 
+  beforeEach(() => spyOn(coverageUpdater, 'updateCodeCoverage'));
+
   describe('export spec', () => {
     it('should export properly', () => {
       expect(incrementReporter).toBeDefined();
@@ -61,7 +63,6 @@ describe('incrementReporter spec', () => {
     const incrementConfig = { flexibility: 0.3 };
 
     beforeEach(() => {
-      spyOn(coverageUpdater, 'updateCodeCoverage');
       config = {
         reporters: [coverageReporter],
         coverageReporter: jsonSummaryCoverageReporter,
