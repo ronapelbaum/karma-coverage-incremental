@@ -6,6 +6,7 @@ describe('utils spec', () => {
     spyOn(fs, 'existsSync');
     spyOn(fs, 'readdirSync');
     spyOn(fs, 'readFileSync');
+    spyOn(fs, 'writeFileSync');
     spyOn(fs, 'statSync');
   });
   describe('getDirectories() spec', () => {
@@ -48,6 +49,15 @@ describe('utils spec', () => {
       fs.existsSync.and.returnValue(true);
       fs.readFileSync.and.returnValue('{ "a" : 1 }');
       expect(utils.getJson()).toEqual({ a: 1 });
+    });
+  });
+
+  describe('writeJson() spec', () => {
+    const filePath = 'a.json';
+    const data = { a: 1 };
+    it('should call writeFileSync with json', () => {
+      utils.writeJson(filePath, data);
+      expect(fs.writeFileSync).toHaveBeenCalledWith(filePath, '{\n  "a": 1\n}\n', 'utf8');
     });
   });
   describe('writeYaml spec', () => {
