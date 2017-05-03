@@ -59,7 +59,7 @@ describe('incrementReporter spec', () => {
 
   describe('use of coverageUpdater spec', () => {
     let config;
-    const incrementConfigDefault = { isKarma: true };
+    const incrementConfigDefault = { };
     const incrementConfig = { flexibility: 0.3 };
 
     beforeEach(() => {
@@ -70,13 +70,13 @@ describe('incrementReporter spec', () => {
     });
     it('should call updateCodeCoverage() with default config', () => {
       incrementReporter(config);
-      expect(coverageUpdater.updateCodeCoverage).toHaveBeenCalledWith(incrementConfigDefault);
+      expect(coverageUpdater.updateCodeCoverage).toHaveBeenCalledWith(jasmine.any(String), incrementConfigDefault);
     });
-    it('should call updateCodeCoverage()', () => {
+    it('should call updateCodeCoverage() with custom config', () => {
       config.incrementConfig = incrementConfig;
       incrementReporter(config);
       const params = Object.assign(incrementConfig, incrementConfigDefault);
-      expect(coverageUpdater.updateCodeCoverage).toHaveBeenCalledWith(params);
+      expect(coverageUpdater.updateCodeCoverage).toHaveBeenCalledWith(jasmine.any(String), params);
     });
   });
 });
