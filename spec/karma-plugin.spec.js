@@ -1,5 +1,6 @@
 const incrementReporter = require('../lib/karma-plugin')['reporter:increment'][1];
 const coverageUpdater = require('../lib/coverage-updater');
+const utils = require('../lib/utils');
 
 describe('incrementReporter spec', () => {
   const coverageReporter = 'coverage';
@@ -65,18 +66,46 @@ describe('incrementReporter spec', () => {
     beforeEach(() => {
       config = {
         reporters: [coverageReporter],
-        coverageReporter: jsonSummaryCoverageReporter,
+        coverageReporter: Object.assign({}, jsonSummaryCoverageReporter),
       };
     });
     it('should call updateCodeCoverage() with default config', () => {
       incrementReporter(config);
-      expect(coverageUpdater.updateCodeCoverage).toHaveBeenCalledWith(jasmine.any(String), incrementConfigDefault);
+      expect(coverageUpdater.updateCodeCoverage)
+        .toHaveBeenCalledWith(jasmine.any(String), incrementConfigDefault);
     });
     it('should call updateCodeCoverage() with custom config', () => {
       config.incrementConfig = incrementConfig;
       incrementReporter(config);
-      const params = Object.assign(incrementConfig, incrementConfigDefault);
-      expect(coverageUpdater.updateCodeCoverage).toHaveBeenCalledWith(jasmine.any(String), params);
+      const newConfig = Object.assign(incrementConfig, incrementConfigDefault);
+      expect(coverageUpdater.updateCodeCoverage)
+        .toHaveBeenCalledWith(jasmine.any(String), newConfig);
+    });
+
+    describe('calc coverageSummaryPath spec', () => {
+      beforeEach(() => {
+        spyOn(utils, 'getDirectories').and.returnValue(['boo']);
+      });
+      it('should calc coverageSummaryPath = coverage/boo/coverage-summary.json', () => {
+        const coverageSummaryPath = 'coverage/boo/coverage-summary.json';
+        incrementReporter(config);
+        expect(coverageUpdater.updateCodeCoverage)
+          .toHaveBeenCalledWith(coverageSummaryPath, jasmine.any(Object));
+      });
+      it('should calc coverageSummaryPath = aaa/boo/coverage-summary.json', () => {
+        const coverageSummaryPath = 'aaa/boo/coverage-summary.json';
+        config.coverageReporter.dir = 'aaa';
+        incrementReporter(config);
+        expect(coverageUpdater.updateCodeCoverage)
+          .toHaveBeenCalledWith(coverageSummaryPath, jasmine.any(Object));
+      });
+      it('should calc coverageSummaryPath = coverage/boo/aaa.json', () => {
+        const coverageSummaryPath = 'coverage/boo/aaa.json';
+        config.coverageReporter.file = 'aaa.json';
+        incrementReporter(config);
+        expect(coverageUpdater.updateCodeCoverage)
+          .toHaveBeenCalledWith(coverageSummaryPath, jasmine.any(Object));
+      });
     });
   });
 });
