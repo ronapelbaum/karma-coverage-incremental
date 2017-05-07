@@ -82,6 +82,7 @@ describe('incrementReporter spec', () => {
         .toHaveBeenCalledWith(jasmine.any(String), newConfig);
     });
 
+    let x =1 ;
     describe('calc coverageSummaryPath spec', () => {
       beforeEach(() => {
         spyOn(utils, 'getDirectories').and.returnValue(['boo']);
