@@ -1,8 +1,11 @@
 ## Description
-...
+(short description of the PR)
+
+## Related PRs
+(related PRs from other repositories)
 
 ## YouTrack
-https://vidible.myjetbrains.com/youtrack/issue/...
+(YouTrack ticket link)
 
 ## Code Review: check-list
 - [ ] Removed `/* eslint-disable */` comment at file header
