@@ -4,9 +4,11 @@
   "description": "a karma-coverage plugin for incremental coverage",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf coverage/",
     "lint": "eslint **/*.js -f table",
     "lint-fix": "eslint **/*.js --fix --quiet",
     "coveralls": "./node_modules/.bin/istanbul-coveralls",
+    "pretest": "npm run clean",
     "test": "istanbul cover jasmine index.spec.js"
   },
   "keywords": [
