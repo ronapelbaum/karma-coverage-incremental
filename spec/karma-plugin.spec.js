@@ -58,7 +58,7 @@ describe('incrementReporter spec', () => {
     });
   });
 
-  describe('use of coverageUpdater spec', () => {
+  xdescribe('use of coverageUpdater spec', () => {
     let config;
     const incrementConfigDefault = { };
     const incrementConfig = { flexibility: 0.3 };
