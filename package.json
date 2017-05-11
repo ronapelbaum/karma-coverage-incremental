@@ -12,7 +12,7 @@
     "test": "istanbul cover jasmine index.spec.js",
     "release": "git log `git describe --tags --abbrev=0 HEAD^`..HEAD --oneline --decorate",
     "preversion": "npm test",
-    "postversion2": "git push && git push --tags && npm publish"
+    "postversion3": "git push && git push --tags && npm publish"
   },
   "keywords": [
     "karma"
