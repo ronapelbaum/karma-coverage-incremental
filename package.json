@@ -9,8 +9,10 @@
     "lint:fix": "eslint **/*.js --fix --quiet",
     "coveralls": "./node_modules/.bin/istanbul-coveralls",
     "pretest": "npm run clean",
-    "test": "istanbul cover jasmine index.spec.js"
-  },
+    "test": "istanbul cover jasmine index.spec.js",
+    "preversion": "npm test",
+    "postversion": "git push --tags"
+},
   "keywords": [
     "karma"
   ],
