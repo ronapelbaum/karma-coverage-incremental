@@ -10,8 +10,10 @@
     "coveralls": "./node_modules/.bin/istanbul-coveralls",
     "pretest": "npm run clean",
     "test": "istanbul cover jasmine index.spec.js",
+    "release": "git log `git describe --tags --abbrev=0 HEAD^`..HEAD --oneline --decorate",
     "preversion": "npm test",
-    "postversion": "git push && git push --tags"
+    "version": "-m \"version %s\"",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "keywords": [
     "karma"
