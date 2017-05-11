@@ -1,6 +1,6 @@
 {
   "name": "karma-coverage-incremental",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "a karma-coverage plugin for incremental coverage",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,6 @@
     "test": "istanbul cover jasmine index.spec.js",
     "release": "git log `git describe --tags --abbrev=0 HEAD^`..HEAD --oneline --decorate",
     "preversion": "npm test",
-    "version": "-m \"version %s\"",
     "postversion": "git push && git push --tags && npm publish"
   },
   "keywords": [
